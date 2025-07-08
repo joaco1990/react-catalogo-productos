@@ -1,12 +1,21 @@
-# React + Vite
+# Catálogo de Productos de Videojuegos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación React que muestra productos organizados por categoría, con filtros y diseño responsive. Toda la información es mock local.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Uso de Inteligencia Artificial en el Proyecto
 
-## Expanding the ESLint configuration
+### Herramientas de IA utilizadas
+Para este proyecto se utilizó **GitHub Copilot** , **ChatGPT**, **Gemini** y **Perplexity** como herramientas de asistencia en la codificación y estructuración del frontend React.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Partes del desarrollo asistidas por IA
+La IA fue útil para:
+- Generar la estructura base del proyecto en React.
+- Crear componentes como `ProductCard` y `CategoryFilter`.
+- Escribir código CSS para mejorar la apariencia.
+- Sugerir prompts para organizar el proyecto y manejar imágenes.
+- Resolver errores y optimizar el flujo de deploy.
+
+### Reflexión sobre la utilidad de la IA
+La inteligencia artificial ha sido una gran ayuda para acelerar el desarrollo, evitar errores comunes y mejorar la calidad del código. Facilita la experimentación y permite enfocarse en el diseño y la lógica, dejando tareas repetitivas a la IA. Sin duda, es una herramienta valiosa para desarrollos rápidos y eficientes.
