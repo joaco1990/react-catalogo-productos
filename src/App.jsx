@@ -8,10 +8,18 @@ import CategoryFilter from './components/CategoryFilter';
 // Importaciones de estilos
 import './App.css';
 
+// Importaciones de imágenes
+import ps5Image from './assets/ps5.jpg';
+import xboxImage from './assets/xbox-series-x.jpg';
+import zeldaImage from './assets/zelda-totk.jpg';
+import dualsenseImage from './assets/dualsense.jpg';
+import switchImage from './assets/switch-oled.jpg';
+import headsetImage from './assets/pulse-3d.jpg';
+
 // Constantes
 export const categories = ['Todas', 'Consolas', 'Juegos', 'Accesorios'];
 
-// Datos de productos
+// Array de productos con imágenes importadas
 const products = [
   {
     id: 1,
@@ -19,7 +27,7 @@ const products = [
     description: 'Consola de última generación de Sony con gráficos 4K y SSD ultrarrápido.',
     price: 699.99,
     category: 'Consolas',
-    image: '/assets/ps5.jpg',
+    image: ps5Image,
   },
   {
     id: 2,
@@ -27,7 +35,7 @@ const products = [
     description: 'La consola más potente de Microsoft, con soporte para juegos en 4K.',
     price: 679.99,
     category: 'Consolas',
-    image: '/assets/xbox-series-x.jpg',
+    image: xboxImage,
   },
   {
     id: 3,
@@ -35,7 +43,7 @@ const products = [
     description: 'Aventura épica exclusiva para Nintendo Switch.',
     price: 69.99,
     category: 'Juegos',
-    image: '/assets/zelda-totk.jpg',
+    image: zeldaImage,
   },
   {
     id: 4,
@@ -43,7 +51,7 @@ const products = [
     description: 'Control inalámbrico para PlayStation 5 con retroalimentación háptica.',
     price: 79.99,
     category: 'Accesorios',
-    image: '/assets/dualsense.jpg',
+    image: dualsenseImage,
   },
   {
     id: 5,
@@ -51,7 +59,7 @@ const products = [
     description: 'Consola híbrida de Nintendo con pantalla OLED de 7 pulgadas.',
     price: 499.99,
     category: 'Consolas',
-    image: '/assets/switch-oled.jpg',
+    image: switchImage,
   },
   {
     id: 6,
@@ -59,34 +67,9 @@ const products = [
     description: 'Auriculares inalámbricos optimizados para audio 3D en PS5.',
     price: 99.99,
     category: 'Accesorios',
-    image: '/assets/pulse-3d.jpg',
+    image: headsetImage,
   },
 ];
-
-// Estilos inline extraídos para mejor legibilidad
-const filterContainerStyle = {
-  display: 'flex',
-  flexWrap: 'wrap',
-  gap: '1rem',
-  alignItems: 'center',
-  justifyContent: 'center',
-  margin: '2rem 0 1rem 0',
-};
-
-const searchInputStyle = {
-  padding: '0.5rem',
-  borderRadius: '6px',
-  border: '1px solid #ccc',
-  fontSize: '1rem',
-  minWidth: '220px',
-};
-
-const noProductsMessageStyle = {
-  gridColumn: '1/-1',
-  textAlign: 'center',
-  color: '#888',
-  fontSize: '1.2rem',
-};
 
 /**
  * Componente principal de la aplicación
@@ -117,27 +100,33 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="app-container">
+      {/* Título principal */}
+      <h1 className="app-title">🎮 Catálogo de Videojuegos</h1>
+      <p className="app-subtitle">Descubre los mejores productos gaming del mercado</p>
+
       {/* Sección de filtros y búsqueda */}
-      <div className="filters" style={filterContainerStyle}>
+      <div className="filters-container">
         <CategoryFilter
           categories={categories}
           selectedCategory={selectedCategory}
           onSelectCategory={setSelectedCategory}
         />
-        <input
-          type="text"
-          placeholder="Buscar por nombre o descripción..."
-          value={search}
-          onChange={handleSearchChange}
-          style={searchInputStyle}
-        />
+        <div className="search-container">
+          <input
+            type="text"
+            placeholder="Buscar por nombre o descripción..."
+            value={search}
+            onChange={handleSearchChange}
+            className="search-input"
+          />
+        </div>
       </div>
 
       {/* Lista de productos */}
       <div className="product-list">
         {filteredProducts.length === 0 ? (
-          <p style={noProductsMessageStyle}>
+          <p className="no-products-message">
             No hay productos para esta categoría.
           </p>
         ) : (

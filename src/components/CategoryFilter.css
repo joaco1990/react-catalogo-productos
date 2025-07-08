@@ -1,20 +1,82 @@
+/* Los estilos de CategoryFilter ahora están definidos en App.css para mejor organización */
+/* Este archivo se mantiene por compatibilidad pero los estilos principales están en App.css */
+
 .category-filter {
   display: flex;
-  gap: 10px;
+  gap: 1rem;
+  flex-wrap: wrap;
   justify-content: center;
-  margin: 20px 0;
+  align-items: center;
+  margin-bottom: 1.5rem;
 }
 
-.category-filter button {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 20px;
-  background-color: #eee;
+.category-button {
+  padding: 0.875rem 1.75rem;
+  border: 2px solid #e2e8f0;
+  background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
+  color: #4a5568;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: capitalize;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
 }
 
-.category-filter button.selected {
-  background-color: #007bff;
+.category-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s;
+}
+
+.category-button:hover::before {
+  left: 100%;
+}
+
+.category-button:hover {
+  border-color: #4299e1;
+  color: #4299e1;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(66, 153, 225, 0.25);
+}
+
+.category-button.active {
+  background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+  border-color: #4299e1;
   color: white;
+  box-shadow: 0 8px 25px rgba(66, 153, 225, 0.4);
+  transform: translateY(-2px);
+}
+
+.category-button.active:hover {
+  background: linear-gradient(135deg, #3182ce 0%, #2c5aa0 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(66, 153, 225, 0.5);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .category-filter {
+    gap: 0.75rem;
+  }
+
+  .category-button {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-button {
+    padding: 0.625rem 1rem;
+    font-size: 0.85rem;
+  }
 } 

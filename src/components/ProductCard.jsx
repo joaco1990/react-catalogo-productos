@@ -1,5 +1,10 @@
-import React from 'react';
+// Importaciones de React
+import React, { useState } from 'react';
+
+// Importaciones de PropTypes
 import PropTypes from 'prop-types';
+
+// Importaciones de estilos
 import './ProductCard.css';
 
 /**
@@ -25,10 +30,26 @@ import './ProductCard.css';
  * />
  */
 const ProductCard = ({ name, description, price, category, image }) => {
+  // Estado para manejar errores de carga de imagen
+  const [imageError, setImageError] = useState(false);
+  
+  // URL de imagen de placeholder
+  const placeholderImage = 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=300&fit=crop&crop=center';
+  
+  // Manejador para errores de carga de imagen
+  const handleImageError = () => {
+    setImageError(true);
+  };
+
   return (
     <div className="product-card">
       {/* Imagen del producto con texto alternativo descriptivo para accesibilidad */}
-      <img src={image} alt={name} className="product-image" />
+      <img 
+        src={imageError ? placeholderImage : image} 
+        alt={name} 
+        className="product-image"
+        onError={handleImageError}
+      />
       
       {/* Título del producto */}
       <h2>{name}</h2>
